@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>¡Feliz Cumpleaños Maryori!</title>
+<style>
+  body {
+    background-color: #0b0c10;
+    color: #fff;
+    margin: 0;
+    font-family: 'Verdana', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  #pantalla-inicio {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Botón con el morado característico de BTS */
+  .boton-empezar {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    background-color: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Verdana', sans-serif;
+    font-weight: bold;
+    box-shadow: 0 0 20px #9b59b6;
+    transition: transform 0.2s;
+  }
+
+  .boton-empezar:hover {
+    transform: scale(1.1);
+  }
+
+  #contenido-principal {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+  }
+  
+  .Happy_Birthday {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-bottom: 40px;
+  }
+  
+  .line { margin: 10px 0; }
+  
+  /* Paleta de colores BTS: Morados, lilas y rosas */
+  .c1 { color: #d980fa; } /* Rosa/Morado brillante */
+  .c2 { color: #9b59b6; } /* Morado clásico */
+  .c3 { color: #fda7df; } /* Rosa claro */
+  .c4 { color: #8e44ad; } /* Morado oscuro */
+  .c5 { color: #a29bfe; } /* Lila suave */
+
+  .letter {
+    text-shadow: 2px 2px rgba(255,255,255,0.2);
+    animation: glow 1.5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from { opacity: 0.8; }
+    to { opacity: 1; text-shadow: 0 0 10px currentColor, 0 0 20px currentColor; }
+  }
+
+  /* Carta con un ligero resplandor morado */
+  .carta-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+    line-height: 1.6;
+    font-size: 1.1rem;
+    text-align: left;
+  }
+
+  .carta-container p { margin-bottom: 15px; }
+  .carta-container ul { margin-bottom: 15px; padding-left: 20px; }
+  .carta-container li { margin-bottom: 8px; }
+
+  .confetti {
+    position: fixed;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    border-radius: 2px;
+    z-index: 1;
+  }
+  
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(720deg); }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Pantalla de inicio -->
+  <div id="pantalla-inicio">
+    <button class="boton-empezar" onclick="iniciarSorpresa()">▶️ Abrir Regalo</button>
+  </div>
+  
+  <!-- Contenido Principal -->
+  <div id="contenido-principal">
+    
+    <div class="Happy_Birthday">
+      <div class="line">
+        <span class="letter c1">F</span><span class="letter c2">E</span><span class="letter c3">L</span><span class="letter c4">I</span><span class="letter c5">Z</span>
+      </div>
+      <div class="line">
+        <span class="letter c2">C</span><span class="letter c3">U</span><span class="letter c4">M</span><span class="letter c5">P</span><span class="letter c1">L</span><span class="letter c2">E</span><span class="letter c3">A</span><span class="letter c4">Ñ</span><span class="letter c5">O</span><span class="letter c1">S</span>
+      </div>
+      <div class="line">
+        <span class="letter c4">M</span><span class="letter c5">A</span><span class="letter c1">R</span><span class="letter c2">Y</span><span class="letter c3">O</span><span class="letter c4">R</span><span class="letter c5">I</span>
+      </div>
+    </div>
+
+    <div class="carta-container">
+      <p><strong>Maryori,</strong></p>
+      <p>Quería prepararte algo un poquito diferente este año, así que diseñé esto para ti.</p>
+      <p>Deseo que pases un día increíble y que Dios te bendiga enormemente hoy y todos los días de este nuevo año de vida. Que nunca te falte la salud, que encuentres éxito en todo lo que te propongas y que la felicidad sea una constante en tu camino.</p>
+      <p>Que este cumpleaños esté lleno de:</p>
+      <ul>
+        <li><span class="c2">✔</span> <strong>Sonrisas interminables</strong> y celebraciones bonitas.</li>
+        <li><span class="c4">✔</span> <strong>Paz y claridad</strong> para tomar siempre las mejores decisiones.</li>
+      </ul>
+      <p>Espero que este pequeño detalle te haya sacado una sonrisa y te haga bailar un poco con tu canción favorita, creo. Celebra a lo grande y disfruta cada minuto de tu día.</p>
+      <p>Un abrazo gigante,<br>Sebastián</p>
+    </div>
+
+  </div>
+
+  <!-- Etiqueta de audio nativa -->
+  <audio id="musica-fondo" src="cancion.mp3"></audio>
+
+  <script>
+    function iniciarSorpresa() {
+      document.getElementById('pantalla-inicio').style.display = 'none';
+      document.getElementById('contenido-principal').style.display = 'flex';
+      
+      var musica = document.getElementById('musica-fondo');
+      musica.volume = 0.5; 
+      musica.currentTime = 15; // Recuerda ajustar este número al segundo que quieras
+      musica.play();
+
+      // Confeti con los colores de BTS
+      const colors = ['#d980fa', '#9b59b6', '#fda7df', '#8e44ad', '#a29bfe'];
+      for (let i = 0; i < 120; i++) {
+        let confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDuration = (Math.random() * 4 + 3) + 's';
+        confetti.style.animationDelay = (Math.random() * 5) + 's';
+        document.body.appendChild(confetti);
+      }
+    }
+  </script>
+</body>
+</html>
